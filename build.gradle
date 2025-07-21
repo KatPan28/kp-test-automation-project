@@ -1,0 +1,64 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.test'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    restAssuredVersion = '5.3.0'
+    slf4jVersion = '2.0.9'
+    lombokVersion = '1.18.30'
+    jacksonVersion = '2.17.0'
+    testngVersion = '7.7.0'
+    assertjVersion = '3.24.2'
+    extentReportVersion = '5.1.2'
+}
+
+dependencies {
+// REST-assured
+    implementation "io.rest-assured:rest-assured:$restAssuredVersion"
+
+// JSON parser
+    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion"
+
+// logger
+    implementation "org.slf4j:slf4j-simple:$slf4jVersion"
+
+// lombok
+    implementation "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+// testNG
+    testImplementation "org.testng:testng:$testngVersion"
+
+// assertions
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
+
+// reporting
+    testImplementation "com.aventstack:extentreports:$extentReportVersion"
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/testng.xml'
+    }
+
+    testLogging {
+        events 'PASSED', 'FAILED', 'SKIPPED'
+        showStandardStreams = true
+    }
+}

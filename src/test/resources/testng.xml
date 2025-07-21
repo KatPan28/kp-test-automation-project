@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+  <listeners>
+    <listener class-name="org.test.api.common.ExtentTestListener"/>
+  </listeners>
+  <test name="BookTests">
+    <classes>
+      <class name="org.test.api.books.GetAllBooksTests"/>
+      <class name="org.test.api.books.GetSpecificBookTests"/>
+      <class name="org.test.api.books.PostAddBookTests"/>
+      <class name="org.test.api.books.DeleteSpecificBookTests"/>
+      <class name="org.test.api.books.PutUpdateBookDetailsTests"/>
+      <class name="org.test.api.common.Hooks"/>
+    </classes>
+  </test>
+  <test name="AuthorTests">
+    <classes>
+      <class name="org.test.api.authors.AuthorsAPITest"/>
+      <class name="org.test.api.common.Hooks"/>
+    </classes>
+  </test>
+</suite>
