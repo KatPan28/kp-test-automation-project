@@ -68,7 +68,7 @@ You can run the tests using either **Gradle** or directly from your **IDE**.
 This project includes GitHub Actions workflow support for automated test execution on every push or
 pull request.
 
-- Can be started automatically on push/pull request or **manually from the Workflows tab**
+- Can be started automatically on pull request creation/push to main branch or **manually from the Workflows tab**
 - Uses `./gradlew clean test` internally to execute the full test suite
 - After test execution, the HTML report (`ExtentReport.html`) is uploaded as an artifact
 
@@ -81,6 +81,8 @@ pull request.
     2. Select the workflow named (e.g., `API Tests`)
     3. Click the **Run workflow** button on the right side
     4. Choose the branch to run on (optional) and confirm
+       <img width="1688" height="580" alt="git action manual execution steps" src="https://github.com/user-attachments/assets/4fd2bf34-f709-4467-b08d-438c0b6d5e2c" />
+
 - After the workflow completes, open the **Actions** tab
 - Select the latest workflow run
 - Download the test report from the **Artifacts** section (named `ExtentReport`)
@@ -100,6 +102,8 @@ The extended test automation report includes metrics such as:
 - After local test execution (steps are mention above)
     - `Navigate to the `build/reports` folder ` →
       `Open "ExtentReport.html" in your browser to view the detailed report`
+      
+      <img width="1503" height="853" alt="local report location" src="https://github.com/user-attachments/assets/eaedb82d-7a38-41e6-906d-252724151673" />
 
 ### ✅ 2. Test Report as attachments in CI
 
@@ -107,3 +111,5 @@ The extended test automation report includes metrics such as:
     - `The report is generated automatically and uploaded as an artifact` →
       `You can download the "ExtentReport.html" file from the workflow run's **Artifacts** section in
           the CI UI`
+      
+    <img width="1897" height="892" alt="git action test report location" src="https://github.com/user-attachments/assets/4b97eae1-afe0-407c-8d10-dafeaf1412f9" />
